@@ -794,7 +794,7 @@ class ProgramController extends Events {
 
 function assignMediaContainer(model, mediaController) {
     const container = model.get('mediaContainer');
-    if (container) {
+    if (__HEADLESS__ || container) {
         mediaController.container = container;
     } else {
         model.once('change:mediaContainer', (changedModel, changedContainer) => {
